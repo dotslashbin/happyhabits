@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"github.com/dotslashbin/happyhabits/api/core"
+)
 
 func main() {
-	fmt.Println("hello world")
+	core.Gin().Run()
 }

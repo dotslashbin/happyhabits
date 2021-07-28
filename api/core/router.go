@@ -10,4 +10,6 @@ import (
  */
 func InitializeRoutes(gin *gin.Engine) {
 	gin.GET("/test", handlers.GetLogs)
+
+	gin.POST("logger/food", handlers.SubmitFoodLog)
 }

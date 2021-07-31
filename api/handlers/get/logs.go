@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"fmt"
+	"github.com/dotslashbin/happyhabits/api/services/food"
 	"net/http"
 
 	"github.com/dotslashbin/happyhabits/api/models"
@@ -9,7 +9,7 @@ import (
 )
 
 func GetLogs(context *gin.Context) {
-	fmt.Println("You called GetLogs...")
+	//fmt.Println("You called GetLogs...")
 }
 
 func SubmitFoodLog(context *gin.Context) {
@@ -20,6 +20,10 @@ func SubmitFoodLog(context *gin.Context) {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+
+	service := srvfoodlog.FoodLogger{}
+
+	service.CreateLog()
 
 	context.JSON(http.StatusOK, gin.H{"data": food})
 }

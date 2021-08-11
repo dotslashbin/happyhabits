@@ -19,9 +19,7 @@ type MongoDBRepo struct {
 	Client *mongo.Client
 }
 
-/**
- * Returns the mongo db client for use
- */
+// GetClient returns the database client
 func GetClient() (*mongo.Client, error) {
 	godotenv.Load()
 	configs, _ := godotenv.Read()
@@ -47,9 +45,7 @@ func GetClient() (*mongo.Client, error) {
 	return clientInstance, clientInstanceError
 }
 
-/**
- * Initializes the MongodbRepo class
- */
+// InitDB initializes the database connection
 func (db *MongoDBRepo) InitDB() {
 	client, err := GetClient()
 	if err != nil {

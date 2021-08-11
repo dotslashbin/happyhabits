@@ -7,8 +7,11 @@ import (
 func Gin() *gin.Engine {
 	framework := gin.Default()
 
-	framework.Use(func(context *gin.Context) {
+	// Firebase
+	firebaseAuth := SetupFirebase()
 
+	framework.Use(func(context *gin.Context) {
+		context.Set("firebaseAuth", firebaseAuth)
 	})
 
 	InitializeRoutes(framework)

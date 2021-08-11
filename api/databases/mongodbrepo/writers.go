@@ -8,9 +8,7 @@ import (
 	"github.com/joho/godotenv"
 )
 
-/**
- * Executes a create call on mongo and returns a resulting interface
- */
+// Create executes a database call to create a record
 func (db *MongoDBRepo) Create(inputs interface{}, collectionName string) interface{} {
 
 	godotenv.Load()
